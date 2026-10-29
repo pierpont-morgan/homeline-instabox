@@ -1,0 +1,34 @@
+{
+  "log": { "loglevel": "warning" },
+  "inbounds": [
+    {
+      "port": <XRAY_PORT>,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [{ "id": "<UUID>" }],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": { "path": "/<WS_PATH>" }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "socks",
+      "settings": {
+        "servers": [
+          {
+            "address": "127.0.0.1",
+            "port": <SOCKS_PORT>,
+            "users": [{ "user": "<GATE_USER>", "pass": "<GATE_PASS>" }]
+          }
+        ]
+      }
+    },
+    { "tag": "block", "protocol": "blackhole" }
+  ],
+  "routing": { "rules": [{ "type": "field", "network": "udp", "outboundTag": "block" }] }
+}

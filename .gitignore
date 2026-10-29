@@ -1,0 +1,7 @@
+.env
+client.txt
+ovpn/
+*.ovpn
+*.png
+*.jpg
+scan-*/

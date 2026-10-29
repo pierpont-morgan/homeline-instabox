@@ -1,0 +1,12 @@
+[Unit]
+Description=Xray home <NAME> (VLESS+WS via homeline gateway)
+After=network-online.target docker.service
+Wants=network-online.target
+[Service]
+Type=simple
+User=user
+ExecStart=<BASE>/<NAME>/xray/xray run -c <BASE>/<NAME>/xray-config.json
+Restart=always
+RestartSec=5
+[Install]
+WantedBy=multi-user.target

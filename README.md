@@ -1,5 +1,7 @@
 # homeline-instabox
 
+Chinese deployment guide: [homeline-deployment-post.md](homeline-deployment-post.md) — same deployment, in Chinese.
+
 Residential-exit (家宽) lines on an InstaBox cloud computer, adapted from
 free-dam-man/homeline-residential-exit-skill.
 
